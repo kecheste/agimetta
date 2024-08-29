@@ -7,17 +7,17 @@ AGIMETTA is a project that integrates two AI techniques within a unified framewo
 ### News Agent
 
 - **Purpose**: Fetched new articles from newsapi.
-- **Functionality**: I AgiMetta, the news agent performs fetching a news article from newsapi.
+- **Functionality**: In AgiMetta, the news agent performs fetching a news article from newsapi.
 
-### Recommend Diet
+### Sentiment Analysis Agent
 
-- **Purpose**: Provides dietary recommendations based on a given medical condition or dietary preference.
-- **Functionality**: This agent takes input about a medical condition (e.g., "diabetes") or a dietary preference (e.g., "vegan") and returns a list of recommended foods or meal plans.
+- **Purpose**: Provides sentimental analysis based on the provided text description
+- **Functionality**: This agent takes input and returns a if the sentiment is positive, negative or neutral.
 
 ### MeTTa Agent
 
 - **Purpose**: Acts as the symbolic reasoner agent.
-- **Functionality**: Calls the NEWS and RECOMMEND agents, stores and reads their outputs, and reasons over them using symbolic reasoning.
+- **Functionality**: Calls the NEWS and SENTIMENT agents, stores and reads their outputs, and reasons over them using symbolic reasoning.
 
 ## Motivation
 

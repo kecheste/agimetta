@@ -1,20 +1,21 @@
 from hyperon import *
-from transformers import pipeline
+from textblob import TextBlob
 
-sentiment_analyzer = pipeline("sentiment-analysis")
-
-def sentiment_analyzer_agent(metta, *args):
+def sentiment_analysis_agent(metta, *args):
     if not args:
         return [ValueAtom("No arguments provided", "Error")]
 
-    article_description = str(args[0])
-    sentiment = sentiment_analyzer(article_description)
+    text = str(args[0])
+    blob = TextBlob(text)
+    sentiment = blob.sentiment.polarity
 
-    sentimenta_label = sentiment[0]['label']
-    sentiment_score = sentiment[0]['score']
-
-    sentiment_text = f"Sentiment: {sentimenta_label}, Score: {sentiment_score}"
+    if sentiment > 0:
+        sentiment_text = "Positive sentiment"
+    elif sentiment < 0:
+        sentiment_text = "Negative sentiment"
+    else:
+        sentiment_text = "Neutral sentiment"
 
     atoms = metta.parse_all(sentiment_text)
-
+    
     return [ValueAtom(atom) for atom in atoms]
