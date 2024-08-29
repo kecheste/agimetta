@@ -1,10 +1,13 @@
 from hyperon import *
 from textblob import TextBlob
 
+# This agent uses TextBlob to perform sentiment analysis on the first argument
 def sentiment_analysis_agent(metta, *args):
+    # if no arguments are provided, return an error message
     if not args:
         return [ValueAtom("No arguments provided", "Error")]
 
+    # perform sentiment analysis on the text provided
     text = str(args[0])
     blob = TextBlob(text)
     sentiment = blob.sentiment.polarity

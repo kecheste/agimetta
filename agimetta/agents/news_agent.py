@@ -4,16 +4,17 @@ import requests
 api_key = 'ad4490eb5b0d4911aac9580b11ecfd82'
 
 def news_agent(metta, *args):
+    # if no arguments are provided, return an error message
     if not args:
         return [ValueAtom("No arguments provided", "Error")]
 
+    # fetch news articles based on the query provided
     query = str(args[0])
     url = f'https://newsapi.org/v2/everything?q={query}&apiKey={api_key}'
     response = requests.get(url)
     
     if response.status_code != 200:
         return [ValueAtom("Failed to fetch news articles", "Error")]
-
     data = response.json()
 
     if data['status'] == 'error':

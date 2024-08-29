@@ -1,50 +1,62 @@
-# Agi Metta
+# AGIMETTA
 
-AGIMETTA is a project that integrates two AI techniques within a unified framework using the Hyperon framework. The project demonstrates how python functions are used with metta to perform specific tasks.
+AGIMETTA is a project that integrates two AI techniques within a unified framework using the Hyperon framework. The project demonstrates how Python functions are used with MeTTa to perform specific tasks.
 
 ## The Agents
 
 ### News Agent
 
-- **Purpose**: Fetched new articles from newsapi.
-- **Functionality**: In AgiMetta, the news agent performs fetching a news article from newsapi.
+- **Purpose**: Fetches news articles from NewsAPI.
+- **Functionality**: In AGIMETTA, the News Agent fetches a news article based on a query parameter from NewsAPI and processes the description for further use.
 
 ### Sentiment Analysis Agent
 
-- **Purpose**: Provides sentimental analysis based on the provided text description
-- **Functionality**: This agent takes input and returns a if the sentiment is positive, negative or neutral.
+- **Purpose**: Provides sentiment analysis based on the provided text description.
+- **Functionality**: This agent analyzes the sentiment of the input text and returns whether the sentiment is positive, negative, or neutral.
 
 ### MeTTa Agent
 
 - **Purpose**: Acts as the symbolic reasoner agent.
-- **Functionality**: Calls the NEWS and SENTIMENT agents, stores and reads their outputs, and reasons over them using symbolic reasoning.
+- **Functionality**: Calls the News and Sentiment agents, stores and reads their outputs, and performs symbolic reasoning based on the results.
 
 ## Motivation
 
-The AGIMETTA project aims to demonstrate how the Hyperon framework can be used as a unified environment to perform neural-symbolic reasoning. It shows how different python functions can be defined and utilized as grounded atoms within MeTTa, the programming language of the Hyperon framework.
+The AGIMETTA project aims to demonstrate how the Hyperon framework can be used as a unified environment to perform neural-symbolic reasoning. It shows how different Python functions can be defined and utilized as grounded atoms within MeTTa, the programming language of the Hyperon framework.
 
-## SetUp Guide
+## Setup Guide
 
-Clone the repo
+1. **Clone the repository:**
 
-```bash
-git clone https://github.com/kecheste/agimetta.git
-```
+   ```bash
+   git clone https://github.com/kecheste/agimetta.git
+   ```
 
-Cd to the repo
+2. **Navigate to the repository:**
 
-```bash
-cd agimetta
-```
+   ```bash
+   cd agimetta
+   ```
 
-Install the requirements
+3. **Install the requirements:**
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Run the metta file
+4. **Run the MeTTa file:**
 
-```bash
-metta run-agimetta.metta
+   ```bash
+   metta run-agimetta.metta
+   ```
+
+## Example Usage
+
+To use the News and Sentiment agents in MeTTa, you can run the following commands in the MeTTa file:
+
+```metta
+!(import! &self agimetta)
+!(news "Tesla")
+!(sentiment "Tesla is revolutionizing the electric vehicle market with innovative technology.")
+! (add-reduct &self (news "Tesla"))
+!(match &self $x $x)
 ```
