@@ -1,0 +1,4 @@
+hyperon
+wikipedia-api
+transformers
+tensorflow==2.16.1
